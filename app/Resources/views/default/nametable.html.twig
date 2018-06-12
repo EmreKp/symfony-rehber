@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Phone</th>
+        <th>Department</th>
+        <th>Supervisor</th>
+    </tr>
+    {% for name in names %}
+    <tr>
+        <td>{{ name.id }}</td>
+        <td>{{ name.name }}</td>
+        <td>{{ name.surname }}</td>
+        <td>{{ name.phone }}</td>
+        <td>{{ name.department.name }}</td>
+        <td>{{ name.superior ? name.superior.name ~ " " ~ name.superior.surname : "None" }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
